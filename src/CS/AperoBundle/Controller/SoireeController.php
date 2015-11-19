@@ -40,7 +40,7 @@ class SoireeController extends Controller
         return $this->render('CSAperoBundle:Soiree:index.html.twig', array(
             'soirees' => $listeSoiree,
             'users' => $listeUser,
-            ));
+        ));
 
     }
 }
