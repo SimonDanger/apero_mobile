@@ -1,6 +1,6 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}WikiWikiMaireBundle:Soiree:index{% endblock %}
+{% block title %}Liste des Soirées{% endblock %}
 
 {% block body %}
     <div class="well">
@@ -19,6 +19,8 @@
                     <td>{{ soiree.nom }}</td>
                     <td>{{ soiree.paiement }}</td>
                     <td>{{ soiree.description }}</td>
+                    <td>{{ dump(users) }}</td>
+                    <td>{% for user in users %} {{ user.participants }} {% endfor %}</td>
 
                 </tr>
             {% endfor %}

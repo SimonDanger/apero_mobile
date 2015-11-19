@@ -34,9 +34,11 @@ class SoireeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $listeSoiree = $em->getRepository('CSAperoBundle:Soiree')->findAll();
+        $listeUser = $em->getRepository('CSAperoBundle:User')->findAll();
 
         return $this->render('CSAperoBundle:Soiree:index.html.twig', array(
             'soirees' => $listeSoiree,
+            'users' => $listeUser,
         ));
 
     }

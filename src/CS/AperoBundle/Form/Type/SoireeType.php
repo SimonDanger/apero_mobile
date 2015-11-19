@@ -13,8 +13,8 @@ class SoireeType extends AbstractType
         $builder
             ->add('nom', 'text', array('label' => 'Nom de la Soirée'))
             ->add('paiement', 'text', array('label' => 'Coût de la Soirée'))
-            ->add('description', 'text', array('label' => 'Description'))
-            //->add('users', 'text', array('label' => 'Participant'))
+            ->add('description', 'textarea', array('label' => 'Description'))
+            //->add('users', 'text', array('label' => 'Participants'))
             ->add('save', 'submit', array('label' => 'Envoyez'))
         ;
     }
