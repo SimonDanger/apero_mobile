@@ -1,0 +1,25 @@
+body {
+    background-image: url("http://urbainecity.com/wp-content/uploads/2014/07/framboise.jpg");
+}
+
+li a {
+    color: black;
+    background: #ffecec;
+    opacity: 0.6;
+}
+
+.well {
+    padding-left: 10%;
+    background: #ffecec;
+}
+
+td, th {
+    border: 1px solid black;
+    margin: 20%;
+    text-align: center;
+}
+
+.row {
+    background: #ffecec;
+
+}
