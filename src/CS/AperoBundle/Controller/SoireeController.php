@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File;
 use CS\AperoBundle\Entity\Soiree;
+use CS\AperoBundle\Entity\User;
 use CS\AperoBundle\Form\Type\SoireeType;
 
 
@@ -34,12 +35,12 @@ class SoireeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $listeSoiree = $em->getRepository('CSAperoBundle:Soiree')->findAll();
-        
-
+        $listeUser = $this->getUser();
 
         return $this->render('CSAperoBundle:Soiree:index.html.twig', array(
             'soirees' => $listeSoiree,
-        ));
+            'users' => $listeUser,
+            ));
 
     }
 }
