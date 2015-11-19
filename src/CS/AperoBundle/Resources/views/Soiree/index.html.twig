@@ -1,0 +1,28 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Liste des Soirées{% endblock %}
+
+{% block body %}
+    <div class="well">
+        <table>
+            <thead>
+            <tr>
+                <th>Nom de la Soirée :</th>
+                <th>Coût de la participation :</th>
+                <th>Description :</th>
+                <th>Participants :</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for soiree in soirees %}
+                <tr>
+                    <td>{{ soiree.nom }}</td>
+                    <td>{{ soiree.paiement }}</td>
+                    <td>{{ soiree.description }}</td>
+                    <td>{% for user in soiree.users %}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
