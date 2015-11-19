@@ -19,9 +19,6 @@
                     <td>{{ soiree.nom }}</td>
                     <td>{{ soiree.paiement }}</td>
                     <td>{{ soiree.description }}</td>
-                    <td>{{ dump(users) }}</td>
-                    <td>{% for user in users %} {{ user.participants }} {% endfor %}</td>
-
                 </tr>
             {% endfor %}
             </tbody>
