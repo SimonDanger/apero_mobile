@@ -1,0 +1,20 @@
+CS\AperoBundle\Entity\Soiree:
+    type: entity
+    table: null
+    repositoryClass: CS\AperoBundle\Entity\SoireeRepository
+    manyToMany:
+        users:
+            targetEntity: User
+            mappedBy: participants
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        description:
+            type: string
+        paiement:
+            type: integer
+    lifecycleCallbacks: {  }
