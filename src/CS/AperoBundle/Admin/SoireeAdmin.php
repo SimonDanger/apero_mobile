@@ -14,6 +14,7 @@ class SoireeAdmin extends Admin
             ->add('nom', 'text')
             ->add('description','textarea')
             ->add('paiement' ,'integer')
+            ->add('date', 'datetime')
 
 
         ;
@@ -26,6 +27,7 @@ class SoireeAdmin extends Admin
             ->add('nom')
             ->add('description')
             ->add('paiement')
+            ->add('date')
         ;
     }
     // Fields to be shown on lists
@@ -36,6 +38,7 @@ class SoireeAdmin extends Admin
             ->add('nom', 'text')
             ->add('description','textarea')
             ->add('paiement', 'integer')
+            ->add('date')
             ->add('_action', 'actions', array('actions' => array(
                 'show' => array(),
                 'edit' => array(),

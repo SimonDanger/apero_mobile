@@ -43,6 +43,12 @@ class Soiree
     private $nom;
 
     /**
+     * @var string
+     */
+    private $date;
+
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -84,6 +90,29 @@ class Soiree
     public function setPaiement($paiement)
     {
         $this->paiement = $paiement;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return datetime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+    /**
+     * Set date
+     *
+     * @param integer $date
+     *
+     * @return Soiree
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
 
         return $this;
     }
