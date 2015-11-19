@@ -38,6 +38,11 @@ class Soiree
     private $users;
 
     /**
+     * @var string
+     */
+    private $nom;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -125,5 +130,36 @@ class Soiree
     public function getUsers()
     {
         return $this->users;
+    }
+
+    public function setUsers(\CS\AperoBundle\Entity\User $user)
+    {
+        $this->users->add($user);
+
+        return $this;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Soiree
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
     }
 }

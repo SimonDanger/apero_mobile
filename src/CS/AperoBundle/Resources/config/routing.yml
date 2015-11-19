@@ -1,3 +1,11 @@
 cs_apero_homepage:
     path:     /hello/{name}
     defaults: { _controller: CSAperoBundle:Default:index }
+
+ajout:
+    path:     /soiree/add
+    defaults: { _controller: CSAperoBundle:Soiree:index }
+
+index:
+    path:     /soiree/show
+    defaults: { _controller: CSAperoBundle:Soiree:show }
