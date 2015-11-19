@@ -31,16 +31,28 @@ class SoireeController extends Controller
         ));
     }
 
-    public function showAction()
+    // une seule soiree
+    public function showAction(Soiree $id)
     {
         $em = $this->getDoctrine()->getManager();
-        $listeSoiree = $em->getRepository('CSAperoBundle:Soiree')->findAll();
-        $listeUser = $this->getUser();
+        $soiree = $em->getRepository('CSAperoBundle:Soiree')->find($id);
+        $listeUser = $soiree->getUsers();
 
-        return $this->render('CSAperoBundle:Soiree:index.html.twig', array(
-            'soirees' => $listeSoiree,
+        return $this->render('CSAperoBundle:Soiree:soiree.html.twig', array(
+            'soiree' => $soiree,
             'users' => $listeUser,
         ));
-
     }
+
+    //toutes les soirees
+    public function listAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $listSoiree = $em->getRepository('CSAperoBundle:Soiree')->findAll();
+
+        return $this->render('CSAperoBundle:Soiree:index.html.twig', array(
+            'soirees' => $listSoiree,
+        ));
+    }
+
 }

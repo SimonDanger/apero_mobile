@@ -1,0 +1,32 @@
+{% extends "::base.html.twig" %}
+
+
+{% block title %}une soirée{% endblock %}
+
+
+{% block body %}
+    <div class="well">
+        <table>
+            <thead>
+            <tr>
+                <th>Nom de la Soirée :</th>
+                <th>Coût de la participation :</th>
+                <th>Description :</th>
+                <th>Participants :</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ soiree.nom }}</td>
+                <td>{{ soiree.paiement }}</td>
+                <td>{{ soiree.description }}</td>
+                <td>
+                    {% for user in users %}
+                        {{ user.username }}
+                    {% endfor %}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

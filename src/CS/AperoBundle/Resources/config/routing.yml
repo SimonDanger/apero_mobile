@@ -6,6 +6,10 @@ ajout:
     path:     /soiree/add
     defaults: { _controller: CSAperoBundle:Soiree:index }
 
-index:
-    path:     /soiree/show
+show:
+    path:     /soiree/show/{id}
     defaults: { _controller: CSAperoBundle:Soiree:show }
+
+list:
+    path:   /soiree
+    defaults: { _controller: CSAperoBundle:Soiree:list }
