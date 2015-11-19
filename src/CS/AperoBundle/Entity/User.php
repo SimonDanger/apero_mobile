@@ -2,15 +2,17 @@
 
 namespace CS\AperoBundle\Entity;
 
+use Sonata\UserBundle\Entity\BaseUser as BaseUser;
+
 /**
  * User
  */
-class User
+class User extends BaseUser
 {
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
 
 
     /**
