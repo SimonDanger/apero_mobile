@@ -2,10 +2,13 @@ CS\AperoBundle\Entity\Soiree:
     type: entity
     table: null
     repositoryClass: CS\AperoBundle\Entity\SoireeRepository
-    manyToMany:
+    manyToOne:
         users:
-            targetEntity: User
-            mappedBy: participants
+            targetEntity: Application\Sonata\UserBundle\Entity\User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+
     id:
         id:
             type: integer

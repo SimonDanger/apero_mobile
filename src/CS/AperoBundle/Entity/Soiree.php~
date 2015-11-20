@@ -12,7 +12,6 @@ class Soiree
      */
     private $id;
 
-
     /**
      * Get id
      *
@@ -36,6 +35,21 @@ class Soiree
      * @var \Doctrine\Common\Collections\Collection
      */
     private $users;
+
+    /**
+     * @var string
+     */
+    private $nom;
+
+    /**
+     * @var string
+     */
+    private $date;
+
+    /**
+     * @var integer
+     */
+    private $nombreparticipant;
 
     /**
      * Constructor
@@ -83,6 +97,7 @@ class Soiree
         return $this;
     }
 
+
     /**
      * Get paiement
      *
@@ -125,5 +140,85 @@ class Soiree
     public function getUsers()
     {
         return $this->users;
+    }
+
+    public function setUsers(\CS\AperoBundle\Entity\User $user)
+    {
+        $this->users->add($user);
+
+        return $this;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Soiree
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+
+    /**
+     * Set date
+     *
+     * @param \Datetime $date
+     *
+     * @return Soiree
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \Datetime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Get nombreparticipant
+     *
+     * @return integer
+     */
+    public function getNombreparticipant()
+    {
+        return $this->nombreparticipant;
+    }
+    /**
+     * Set nombreparticipant
+     *
+     * @param integer $nombreparticipant
+     *
+     * @return Soiree
+     */
+
+    public function setNombreparticipant($nombreparticipant)
+    {
+        $this->nombreparticipant = $nombreparticipant;
+
+        return $this;
     }
 }

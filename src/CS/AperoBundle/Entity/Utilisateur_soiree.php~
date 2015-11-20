@@ -1,0 +1,26 @@
+<?php
+
+namespace CS\AperoBundle\Entity;
+
+/**
+ * Utilisateur_soiree
+ */
+class Utilisateur_soiree
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
+

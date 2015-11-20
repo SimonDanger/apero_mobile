@@ -12,6 +12,8 @@ class Soiree
      */
     private $id;
 
+
+    private  $user;
     /**
      * Get id
      *
@@ -34,11 +36,7 @@ class Soiree
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $users;
 
-    /**
-     * @var string
-     */
     private $nom;
 
     /**
@@ -51,13 +49,6 @@ class Soiree
      */
     private $nombreparticipant;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Set description
@@ -111,43 +102,27 @@ class Soiree
     /**
      * Add user
      *
-     * @param \CS\AperoBundle\Entity\User $user
+     * @param Application\Sonata\UserBundle\Entity\User $user
      *
      * @return Soiree
      */
-    public function addUser(\CS\AperoBundle\Entity\User $user)
+    public function setUser(\Application\Sonata\UserBundle\Entity\User $user = null)
     {
-        $this->users[] = $user;
+        $this->user = $user;
 
         return $this;
-    }
-
-    /**
-     * Remove user
-     *
-     * @param \CS\AperoBundle\Entity\User $user
-     */
-    public function removeUser(\CS\AperoBundle\Entity\User $user)
-    {
-        $this->users->removeElement($user);
     }
 
     /**
      * Get users
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Application\Sonata\UserBundle\Entity\User
      */
-    public function getUsers()
+    public function getUser()
     {
-        return $this->users;
+        return $this->user;
     }
 
-    public function setUsers(\CS\AperoBundle\Entity\User $user)
-    {
-        $this->users->add($user);
-
-        return $this;
-    }
 
     /**
      * Set nom

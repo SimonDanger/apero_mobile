@@ -1,0 +1,24 @@
+CS\AperoBundle\Entity\Utilisateur_soiree:
+    type: entity
+    table: null
+    repositoryClass: CS\AperoBundle\Entity\Utilisateur_soireeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    manyToOne:
+        user:
+            targetEntity: Application\Sonata\UserBundle\Entity\User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+
+        soiree:
+            targetEntity: Soiree
+            joinColumn:
+                name: soiree_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

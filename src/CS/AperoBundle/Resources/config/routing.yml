@@ -13,3 +13,7 @@ show:
 list:
     path:   /soiree
     defaults: { _controller: CSAperoBundle:Soiree:list }
+
+addsoiree:
+    path: /
+    defaults: { _controller: CSAperoBundle:Soiree:AddSoiree}

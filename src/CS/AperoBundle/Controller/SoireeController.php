@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File;
 use CS\AperoBundle\Entity\Soiree;
-use CS\AperoBundle\Entity\User;
 use CS\AperoBundle\Form\Type\SoireeType;
 
 
@@ -55,4 +54,28 @@ class SoireeController extends Controller
         ));
     }
 
+    public function AddSoireeAction($id_soiree)
+    {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        if (!is_object($user) || !$user instanceof UserInterface) {
+            throw new AccessDeniedException('This user does not have access to this section.');
+        }
+        $soiree = $this->getDoctrine()->getRepository('CSAperoBundle:Soiree')->findOneById($id_soiree);
+        $soiree->addUser($user);
+        $nombreparticipant = $soiree->getNombreparticipant();
+        $nombreparticipant++;
+        $soiree->setNombreparticipant($nombreparticipant);
+        $nomSoiree = $soiree->getNom();
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($soiree);
+        $em->flush();
+
+        $this->addFlash(
+            'notice',
+            'Inscription reussi pour : "' . $nomSoiree . '"'
+        );
+        return $this->redirect($this->generateUrl('CSAperoBundle:Soiree:index.html.twig'));
+
+
+    }
 }
