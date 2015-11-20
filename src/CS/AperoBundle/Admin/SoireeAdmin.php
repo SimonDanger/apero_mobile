@@ -15,8 +15,7 @@ class SoireeAdmin extends Admin
             ->add('description','textarea')
             ->add('paiement' ,'integer')
             ->add('date', 'datetime')
-
-
+            ->add('nombreparticipant', 'integer')
         ;
     }
     // Fields to be shown on filter forms
@@ -27,7 +26,6 @@ class SoireeAdmin extends Admin
             ->add('nom')
             ->add('description')
             ->add('paiement')
-            ->add('date')
         ;
     }
     // Fields to be shown on lists
@@ -39,11 +37,7 @@ class SoireeAdmin extends Admin
             ->add('description','textarea')
             ->add('paiement', 'integer')
             ->add('date')
-            ->add('_action', 'actions', array('actions' => array(
-                'show' => array(),
-                'edit' => array(),
-                'delete' => array(),
-            )))
+            ->add('nombreparticipant')
         ;
     }
 }

@@ -15,6 +15,7 @@ class SoireeType extends AbstractType
             ->add('paiement', 'text', array('label' => 'Coût de la Soirée'))
             ->add('description', 'text', array('label' => 'Description'))
             ->add('date', 'datetime', array('label' => 'Date'))
+            ->add('nombreparticipant', 'text', array('label' => 'Nombre de participant'))
             ->add('save', 'submit', array('label' => 'Envoyez'))
         ;
     }

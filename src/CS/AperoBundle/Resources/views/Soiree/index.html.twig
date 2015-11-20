@@ -11,6 +11,7 @@
             <tr>
                 <th>Nom de la Soirée :</th>
                 <th>Description :</th>
+                <th>Coût de la participation :</th>
             </tr>
             </thead>
             <tbody>
@@ -18,6 +19,7 @@
                 <tr>
                     <td> {{ soiree.nom }} </td>
                     <td> {{ soiree.description }} </td>
+                    <td>{{ soiree.paiement }}</td>
 
                 </tr>
             {% endfor %}

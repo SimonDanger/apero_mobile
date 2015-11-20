@@ -19,4 +19,8 @@ CS\AperoBundle\Entity\Soiree:
             type: string
         paiement:
             type: integer
+        date:
+            type: datetime
+        nombreparticipant:
+            type: integer
     lifecycleCallbacks: {  }

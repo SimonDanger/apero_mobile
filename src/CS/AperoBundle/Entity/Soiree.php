@@ -12,7 +12,6 @@ class Soiree
      */
     private $id;
 
-
     /**
      * Get id
      *
@@ -47,6 +46,10 @@ class Soiree
      */
     private $date;
 
+    /**
+     * @var integer
+     */
+    private $nombreparticipant;
 
     /**
      * Constructor
@@ -94,28 +97,6 @@ class Soiree
         return $this;
     }
 
-    /**
-     * Get date
-     *
-     * @return datetime
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-    /**
-     * Set date
-     *
-     * @param integer $date
-     *
-     * @return Soiree
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
 
     /**
      * Get paiement
@@ -190,5 +171,54 @@ class Soiree
     public function getNom()
     {
         return $this->nom;
+    }
+
+
+    /**
+     * Set date
+     *
+     * @param \Datetime $date
+     *
+     * @return Soiree
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \Datetime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Get nombreparticipant
+     *
+     * @return integer
+     */
+    public function getNombreparticipant()
+    {
+        return $this->nombreparticipant;
+    }
+    /**
+     * Set nombreparticipant
+     *
+     * @param integer $nombreparticipant
+     *
+     * @return Soiree
+     */
+
+    public function setNombreparticipant($nombreparticipant)
+    {
+        $this->nombreparticipant = $nombreparticipant;
+
+        return $this;
     }
 }
