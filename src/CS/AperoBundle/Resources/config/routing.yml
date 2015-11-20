@@ -7,13 +7,13 @@ ajout:
     defaults: { _controller: CSAperoBundle:Soiree:index }
 
 show:
-    path:     /soiree/show/{id}
+    path:     /soiree/{id}/show
     defaults: { _controller: CSAperoBundle:Soiree:show }
 
 list:
     path:   /soiree
     defaults: { _controller: CSAperoBundle:Soiree:list }
 
-addsoiree:
-    path: /
-    defaults: { _controller: CSAperoBundle:Soiree:AddSoiree}
+soiree_inscription:
+    path: /soiree/{id}/inscription
+    defaults: { _controller: CSAperoBundle:Soiree:inscription}

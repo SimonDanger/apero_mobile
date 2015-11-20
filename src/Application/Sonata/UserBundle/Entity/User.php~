@@ -37,48 +37,7 @@ class User extends BaseUser
     {
         return $this->id;
     }
-    private $participants;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->participants = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $soiress;
 
-    /**
-     * Add participant
-     *
-     * @param \CS\AperoBundle\Entity\Soiree $participant
-     *
-     * @return User
-     */
-    public function addParticipant(\CS\AperoBundle\Entity\Soiree $participant)
-    {
-        $this->participants[] = $participant;
-
-        return $this;
-    }
-
-    /**
-     * Remove participant
-     *
-     * @param \CS\AperoBundle\Entity\Soiree $participant
-     */
-    public function removeParticipant(\CS\AperoBundle\Entity\Soiree $participant)
-    {
-        $this->participants->removeElement($participant);
-    }
-
-    /**
-     * Get participants
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getParticipants()
-    {
-        return $this->participants;
-    }
 }

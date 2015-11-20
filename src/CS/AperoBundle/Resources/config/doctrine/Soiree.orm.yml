@@ -2,12 +2,10 @@ CS\AperoBundle\Entity\Soiree:
     type: entity
     table: null
     repositoryClass: CS\AperoBundle\Entity\SoireeRepository
-    manyToOne:
+    manyToMany:
         users:
             targetEntity: Application\Sonata\UserBundle\Entity\User
-            joinColumn:
-                name: user_id
-                referencedColumnName: id
+            inversedBy: soirees
 
     id:
         id:
@@ -24,6 +22,5 @@ CS\AperoBundle\Entity\Soiree:
             type: integer
         date:
             type: datetime
-        nombreparticipant:
-            type: integer
+
     lifecycleCallbacks: {  }

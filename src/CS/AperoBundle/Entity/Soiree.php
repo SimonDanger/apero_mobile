@@ -7,22 +7,23 @@ namespace CS\AperoBundle\Entity;
  */
 class Soiree
 {
+
+    public function getNombreParticipants()
+    {
+        return count($this->getUsers()->toArray());
+    }
+
+    // GENERATED CODE
     /**
      * @var integer
      */
     private $id;
 
-
-    private  $user;
     /**
-     * Get id
-     *
-     * @return integer
+     * @var string
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $nom;
+
     /**
      * @var string
      */
@@ -34,21 +35,56 @@ class Soiree
     private $paiement;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-
-    private $nom;
-
-    /**
-     * @var string
+     * @var \DateTime
      */
     private $date;
 
     /**
-     * @var integer
+     * @var \Doctrine\Common\Collections\Collection
      */
-    private $nombreparticipant;
+    private $users;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Soiree
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
 
     /**
      * Set description
@@ -88,7 +124,6 @@ class Soiree
         return $this;
     }
 
-
     /**
      * Get paiement
      *
@@ -100,59 +135,9 @@ class Soiree
     }
 
     /**
-     * Add user
-     *
-     * @param Application\Sonata\UserBundle\Entity\User $user
-     *
-     * @return Soiree
-     */
-    public function setUser(\Application\Sonata\UserBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get users
-     *
-     * @return Application\Sonata\UserBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     *
-     * @return Soiree
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-
-    /**
      * Set date
      *
-     * @param \Datetime $date
+     * @param \DateTime $date
      *
      * @return Soiree
      */
@@ -166,7 +151,7 @@ class Soiree
     /**
      * Get date
      *
-     * @return \Datetime
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -174,26 +159,36 @@ class Soiree
     }
 
     /**
-     * Get nombreparticipant
+     * Add user
      *
-     * @return integer
-     */
-    public function getNombreparticipant()
-    {
-        return $this->nombreparticipant;
-    }
-    /**
-     * Set nombreparticipant
-     *
-     * @param integer $nombreparticipant
+     * @param \Application\Sonata\UserBundle\Entity\User $user
      *
      * @return Soiree
      */
-
-    public function setNombreparticipant($nombreparticipant)
+    public function addUser(\Application\Sonata\UserBundle\Entity\User $user)
     {
-        $this->nombreparticipant = $nombreparticipant;
+        $this->users[] = $user;
 
         return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \Application\Sonata\UserBundle\Entity\User $user
+     */
+    public function removeUser(\Application\Sonata\UserBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

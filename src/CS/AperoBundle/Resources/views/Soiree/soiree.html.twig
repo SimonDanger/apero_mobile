@@ -16,18 +16,22 @@
             </tr>
             </thead>
             <tbody>
-            {% for soiree in soiree %}
             <tr>
                 <td>{{ soiree.nom }}</td>
                 <td>{{ soiree.paiement }}</td>
                 <td>{{ soiree.description }}</td>
+                <td>{{ soiree.nombreparticipants }}
+                    {#{% for user in users %}#}
+                        {#{{ user.username }}#}
+                    {#{% endfor %}#}
+                </td>
             </tr>
             </tbody>
         </table>
 
         </div>
-        <a href="{{ path('ajout', { 'id' : soiree.id }) }}">bouyouyoyou</a>
-        <input class="btn btn-default" type="button" value="S'inscrire">
-        <input class="btn btn-default" type="button" value="Se Désinscrire">
+        <a class="btn btn-default" href="{{ path('soiree_inscription', { 'id' : soiree.id }) }}" role="button">S'inscrire ou se désinscrire</a>
+
+
     </div>
 {% endblock %}

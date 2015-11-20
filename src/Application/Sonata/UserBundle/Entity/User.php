@@ -37,48 +37,44 @@ class User extends BaseUser
     {
         return $this->id;
     }
-    private $participants;
 
     /**
-     * Constructor
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->participants = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $soirees;
+
 
     /**
-     * Add participant
+     * Add soiree
      *
-     * @param \CS\AperoBundle\Entity\Soiree $participant
+     * @param \CS\AperoBundle\Entity\Soiree $soiree
      *
      * @return User
      */
-    public function addParticipant(\CS\AperoBundle\Entity\Soiree $participant)
+    public function addSoiree(\CS\AperoBundle\Entity\Soiree $soiree)
     {
-        $this->participants[] = $participant;
+        $this->soirees[] = $soiree;
 
         return $this;
     }
 
     /**
-     * Remove participant
+     * Remove soiree
      *
-     * @param \CS\AperoBundle\Entity\Soiree $participant
+     * @param \CS\AperoBundle\Entity\Soiree $soiree
      */
-    public function removeParticipant(\CS\AperoBundle\Entity\Soiree $participant)
+    public function removeSoiree(\CS\AperoBundle\Entity\Soiree $soiree)
     {
-        $this->participants->removeElement($participant);
+        $this->soirees->removeElement($soiree);
     }
 
     /**
-     * Get participants
+     * Get soirees
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getParticipants()
+    public function getSoirees()
     {
-        return $this->participants;
+        return $this->soirees;
     }
 }

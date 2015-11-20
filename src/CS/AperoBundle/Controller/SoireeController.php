@@ -54,28 +54,25 @@ class SoireeController extends Controller
         ));
     }
 
-    public function AddSoireeAction($id_soiree)
+    public function inscriptionAction($id)
     {
-        $user = $this->container->get('security.context')->getToken()->getUser();
-        if (!is_object($user) || !$user instanceof UserInterface) {
-            throw new AccessDeniedException('This user does not have access to this section.');
-        }
-        $soiree = $this->getDoctrine()->getRepository('CSAperoBundle:Soiree')->findOneById($id_soiree);
-        $soiree->addUser($user);
-        $nombreparticipant = $soiree->getNombreparticipant();
-        $nombreparticipant++;
-        $soiree->setNombreparticipant($nombreparticipant);
-        $nomSoiree = $soiree->getNom();
+        $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
-        $em->persist($soiree);
-        $em->flush();
-
-        $this->addFlash(
-            'notice',
-            'Inscription reussi pour : "' . $nomSoiree . '"'
-        );
-        return $this->redirect($this->generateUrl('CSAperoBundle:Soiree:index.html.twig'));
-
-
+        $soiree = $em->getRepository('CSAperoBundle:Soiree')->findOneById($id);
+        if (!$soiree->getUsers()->contains($user))
+        {
+            // Inscription
+            $soiree->addUser($user);
+            $em->persist($soiree);
+            $em->flush();
+        }
+        else {
+            // Desinscription
+            $soiree->removeUser($user);
+            $em->persist($soiree);
+            $em->flush();
+        }
+        return $this->redirect($this->generateUrl('show', array('id'=>$id)));
     }
+
 }
